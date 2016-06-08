@@ -2,6 +2,8 @@ FROM weidazhao/buildaspnetcore:base
 
 COPY docker-build.sh /usr/local/bin
 
+RUN chmod +x /usr/local/bin/docker-build.sh
+
 ONBUILD ARG IMAGE_NAME
 
 ONBUILD ARG PROJECT_NAME
