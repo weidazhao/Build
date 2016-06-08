@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cp /$(</tmp/project_name)/Dockerfile /app
+cp /$(</args/DOCKERFILE_PATH) /app/Dockerfile
 
 cd /app
 
-docker build -t $(</tmp/image_name) .
+docker build -t $(</args/DOCKER_IMAGE_REPOSITORY):$(</args/DOCKER_IMAGE_TAG) .
