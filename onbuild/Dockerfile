@@ -1,4 +1,4 @@
-FROM weidazhao/buildaspnetcore:latest
+FROM weidazhao/buildaspnetcore:base
 
 COPY docker-build.sh /usr/local/bin
 
