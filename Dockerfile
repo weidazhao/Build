@@ -52,9 +52,9 @@ RUN curl -SL https://dotnetcli.blob.core.windows.net/dotnet/beta/Binaries/$DOTNE
 
 # Install Node.js, Bower and Gulp: https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 
-RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-    && apt-get install -y nodejs
-    && npm install -g bower
+RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - \
+    && apt-get install -y nodejs \
+    && npm install -g bower \
     && npm install -g gulp
 
 CMD ["sh"]
