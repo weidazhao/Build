@@ -20,4 +20,6 @@ ONBUILD COPY . .
 
 ONBUILD RUN dotnet publish -c $BUILD_CONFIGURATION -o /app
 
-ONBUILD ENTRYPOINT docker-build.sh $PROJECT_NAME $IMAGE_NAME
+ONBUILD RUN echo $PROJECT_NAME > /tmp/project_name && echo $IMAGE_NAME > /tmp/image_name
+
+ENTRYPOINT docker-build.sh

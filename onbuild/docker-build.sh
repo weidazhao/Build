@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cp /$1/Dockerfile /app
+cp /$(</tmp/project_name)/Dockerfile /app
 
 cd /app
 
-docker build -t $2 .
+docker build -t $(</tmp/image_name) .
