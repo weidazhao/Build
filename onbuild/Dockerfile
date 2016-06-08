@@ -28,6 +28,6 @@ ONBUILD COPY $PROJECT_NAME/ ./
 
 ONBUILD RUN dotnet publish -c $BUILD_CONFIGURATION -o /app
 
-ONBUILD COPY $DOCKERFILE_PATH /args/Dockerfile
+ONBUILD COPY $DOCKERFILE_PATH /app/Dockerfile
 
 ENTRYPOINT docker-build.sh
