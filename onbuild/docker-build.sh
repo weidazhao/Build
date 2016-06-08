@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cp /$(</args/DOCKERFILE_PATH) /app/Dockerfile
+pushd /app
 
-cd /app
-
-docker build -t $(</args/DOCKER_IMAGE_REPOSITORY):$(</args/DOCKER_IMAGE_TAG) .
+docker build -t $(</args/DOCKER_IMAGE_REPOSITORY):$(</args/DOCKER_IMAGE_TAG) -f /args/Dockerfile .
