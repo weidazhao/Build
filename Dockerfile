@@ -1,8 +1,11 @@
-FROM ubuntu:14.04
+FROM microsoft/dotnet:1.0.0-preview1
 
-# Install cURL and Git
-RUN apt-get update \
-    && apt-get install -y curl git		
+# Install Node.js, Bower and Gulp: https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
+
+RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - \
+    && apt-get install -y nodejs \
+    && npm install -g bower \
+    && npm install -g gulp
 
 # Install Docker: https://github.com/docker-library/docker/blob/master/1.11/Dockerfile
 
@@ -18,19 +21,5 @@ RUN set -x \
 	&& rmdir docker \
 	&& rm docker.tgz \
 	&& docker -v
-
-# Install .NET Core SDK: https://www.microsoft.com/net/core#ubuntu
-
-RUN sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list' \ 
-    && apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893 \
-    && apt-get update \
-    && apt-get install dotnet-dev-1.0.0-preview1-002702
-
-# Install Node.js, Bower and Gulp: https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
-
-RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - \
-    && apt-get install -y nodejs \
-    && npm install -g bower \
-    && npm install -g gulp
 
 CMD ["sh"]
