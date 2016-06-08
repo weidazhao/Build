@@ -2,7 +2,7 @@ FROM microsoft/dotnet:1.0.0-preview1
 
 # Install Node.js, Bower and Gulp: https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 
-RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - \
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g bower \
     && npm install -g gulp
