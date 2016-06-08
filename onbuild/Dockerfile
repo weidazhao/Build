@@ -12,9 +12,9 @@ ONBUILD ARG BUILD_CONFIGURATION
 
 ONBUILD WORKDIR /$PROJECT_NAME
 
-ONBUILD COPY ./project.json .
+ONBUILD COPY ./project.json ./package.json .
 
-ONBUILD RUN dotnet restore
+ONBUILD RUN dotnet restore && npm install
 
 ONBUILD COPY . .
 
